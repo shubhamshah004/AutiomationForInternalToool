@@ -8,5 +8,6 @@ namespace AutiomationForInternalToool.Source.Pages
 {
     public class HomePage
     {
+
     }
 }
