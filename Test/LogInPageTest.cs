@@ -19,7 +19,6 @@ namespace AutiomationForInternalToool.Test
   
         IWebDriver webDriver;
         LoginPage loginPage;
-        string url = "https://localhost:7226/";
         
 
         [SetUp]
