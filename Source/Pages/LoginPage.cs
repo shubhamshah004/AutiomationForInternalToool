@@ -27,7 +27,6 @@ namespace AutiomationForInternalToool.Source.Pages
             locator = new AllLocator(webDriver);
             webDriver = new ChromeDriver();
             webDriver.Manage().Window.Maximize();
-            
         }
 
         public void GotoUrl() 

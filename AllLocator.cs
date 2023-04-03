@@ -18,6 +18,8 @@ namespace AutiomationForInternalToool
         By EmailTextBox = By.Id("email");
         By PassTextBox = By.Id("password");
 
+        By LogOutBtn = By.XPath("//*[@id=\"app\"]/div[2]/main/div[2]/div/div/button[2]");
+        By addQuizCat = By.XPath("//*[@id=\"app\"]/div[2]/main/div[2]/div/div/button[1]");
 
         public AllLocator(IWebDriver webDriver)
         {
@@ -29,6 +31,15 @@ namespace AutiomationForInternalToool
             webDriver.FindElement(LogInBtn).Click(); 
         }
 
+        public void clickLogoutBtn()
+        {
+            webDriver.FindElement(LogOutBtn).Click();
+        }
+
+        public void addQuizCategory()
+        {
+            webDriver.FindElement(addQuizCat).Click();
+        }
         public void EnterUsername()
         {
             webDriver.FindElement(EmailTextBox).SendKeys("shubhamshah@persistent.com");
