@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using NUnit.Framework.Internal.Execution;
 
 namespace AutiomationForInternalToool.Source.Pages
 {
@@ -14,19 +14,23 @@ namespace AutiomationForInternalToool.Source.Pages
     public class LoginPage
     {
         public IWebDriver webDriver;
-        By LogInBtn = By.TagName("button");
-        By EmailTextBox = By.Id("email");
-        By PassTextBox = By.Id("password");
-
+        AllLocator locator;
+        string url = "https://localhost:7226/";
 
         public LoginPage(IWebDriver webDriver)
-        { 
+        {
+            locator = new AllLocator(webDriver);
             this.webDriver = webDriver;
         }
-       
-        
+        public void BrowserOperations()    
+        {
+            locator = new AllLocator(webDriver);
+            webDriver = new ChromeDriver();
+            webDriver.Manage().Window.Maximize();
+            
+        }
 
-        public void GotoUrl(string url) 
+        public void GotoUrl() 
         {
             webDriver.Url = url;
         }
@@ -38,28 +42,19 @@ namespace AutiomationForInternalToool.Source.Pages
 
         public void NormalLogin()
         {
-            webDriver.FindElement(EmailTextBox).SendKeys("shubhamshah@persistent.com");
-            System.Threading.Thread.Sleep(3000);
-            webDriver.FindElement(PassTextBox).SendKeys("TH$sdjglsdjgfjsdfs@323##");
-            webDriver.FindElement(LogInBtn).Click();
-            System.Threading.Thread.Sleep(3000);
+            locator = new AllLocator(webDriver);
+            Thread.Sleep(3000);
+            locator.EnterUsername();
+            Thread.Sleep(1000);
+            locator.EnterPassword();
+            Thread.Sleep(1000);
+            locator.EnterPassword();
+            
         }
-        public void EnterUserName()
-        {
-            webDriver.FindElement(EmailTextBox).SendKeys("shubhamshah@persistent.com");
-
-        }
-        public void EnterPassword()
-        {
-            webDriver.FindElement(PassTextBox).SendKeys("TH$sdjglsdjgfjsdfs@323##");
-        }
-        public void ClickLoginBtn()
-        {
-            webDriver.FindElement(LogInBtn).Click();
-
-        }
-
-
 
     }
+
+
+
 }
+

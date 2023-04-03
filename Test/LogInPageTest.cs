@@ -19,15 +19,14 @@ namespace AutiomationForInternalToool.Test
   
         IWebDriver webDriver;
         LoginPage loginPage;
-        string url = "https://localhost:7226/";
+        
 
         [SetUp]
         public void OpenBrowser()
         {
-            webDriver = new ChromeDriver();
-            webDriver.Manage().Window.Maximize();
             loginPage = new LoginPage(webDriver);
-
+            loginPage.BrowserOperations();
+            loginPage.GotoUrl();
 
         }
         
@@ -35,12 +34,7 @@ namespace AutiomationForInternalToool.Test
         [Test]
         public void Test1()
         {
-            
-            loginPage.GotoUrl(url);
-            Thread.Sleep(10000);
-            loginPage.EnterUserName();
-            loginPage.EnterPassword();
-            loginPage.ClickLoginBtn();
+            loginPage.NormalLogin();
 
         }
 
