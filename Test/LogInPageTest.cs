@@ -32,10 +32,23 @@ namespace AutiomationForInternalToool.Test
         
 
         [Test]
-        public void Test1()
+        public void IfUsernameAndPasswordAreEmptyGivesWarning()
         {
-            loginPage.NormalLogin();
+            
+            loginPage.VerifyWarningforEmptyUsernameAndEmptyPassword();
 
+        }
+        [Test]
+        public void IfUsernmaeIvalidGivesWarnign()
+        {
+
+            loginPage.VerifyInvalidUsernameAndInvalidPassWarning();
+
+        }
+        [Test]
+        public void IFUsernameIsWrongGivesWarnign()
+        {
+            loginPage.VerifyWrongUsernameAndWrongPassWarning();
         }
 
         [TearDown]
