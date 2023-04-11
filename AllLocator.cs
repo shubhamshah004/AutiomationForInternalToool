@@ -18,6 +18,8 @@ namespace AutiomationForInternalToool
         By LogInBtn = By.TagName("button");
         By EmailTextBox = By.Id("email");
         By PassTextBox = By.Id("password");
+        By LogOutBtn = By.XPath("//*[@id=\"app\"]/div[2]/main/div[2]/div/div/button[2]");
+        By addQuizCat = By.XPath("//*[@id=\"app\"]/div[2]/main/div[2]/div/div/button[1]");
         By EmptyUsernameWarning = By.ClassName("validation-message");
         By EmptypassWrning = By.XPath("//div[contains(text(),'The Password field is required.')]");
         By InvalidUsernameWarning = By.XPath("//div[contains(text(),'The Email field is not a valid e-mail address.')]");
@@ -34,7 +36,15 @@ namespace AutiomationForInternalToool
         {
             webDriver.FindElement(LogInBtn).Click(); 
         }
+        public void clickLogoutBtn()
+        {
+            webDriver.FindElement(LogOutBtn).Click();
+        }
 
+        public void addQuizCategory()
+        {
+            webDriver.FindElement(addQuizCat).Click();
+        }
         public void EnterUsernameAdmin()
         {
             webDriver.FindElement(EmailTextBox).SendKeys("shubham_shah@persistent.com");
